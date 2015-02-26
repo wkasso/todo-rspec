@@ -1,0 +1,11 @@
+list:
+  - title: buy milk
+    due: 02-01-2015
+  - title: buy more milk
+    due: 22-02-2017
+  - title: buy even more milk
+    due: 02-03-2015
+  - title: buy much more milk
+    due: 0204-2015
+  - title: buy all of the milk
+    due: 020520150
