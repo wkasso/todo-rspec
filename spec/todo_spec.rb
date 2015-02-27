@@ -65,12 +65,13 @@ describe "ToDo" do
     HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}"
   end
 
-  it "Should use patch to change all content of an object" do
-    
-  end
-
   it "Should use patch to change parts of an object" do
-    
+     rpost = HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[0]
+    id = rpost["id"]
+    rpatch = HTTParty.patch "http://lacedeamon.spartaglobal.com/todos/#{id}", query: {title: '7 Principles of testing'}
+    expect(rpatch.code).to eq(200)
+    expect(rpatch["title"]).to eq('7 Principles of testing')
+    HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}"
   end
 
   it "Should not change content of an object with put if there is missing parameters" do
