@@ -1,7 +1,9 @@
 # Todo testing using RSpec and Watir
-
+## About
+Tests http://lacedeamon.spartaglobal.com/todos to check all http response codes are correct when using CRUD requests
 ## Installation
-Execute bundler on a command line interface such as git bash within PATH to install all required gems
+1) Clone down the repository with the command: $git clone https://github.com/mwkasso/todo-rspec.git
+2) Run: $bundle install
 ```ruby
 bundle
 ```
