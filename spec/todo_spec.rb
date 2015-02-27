@@ -24,7 +24,7 @@ describe "ToDo" do
   end
 
   it "Should not create an object with wrong formatting" do
-    
+    expect((HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[4]).code).to eq(500)
   end 
 
   it "Should not create an object with missing parameters" do
