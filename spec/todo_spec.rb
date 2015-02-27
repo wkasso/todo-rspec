@@ -16,6 +16,10 @@ describe "ToDo" do
     HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}"
   end
 
+  it "Should not get an object that is non-existent" do
+    expect((HTTParty.get "http://lacedeamon.spartaglobal.com/todos/1").code).to eq(404)
+  end
+
   it "Should create an object" do 
     rpost = HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[0]
     id = rpost["id"]
