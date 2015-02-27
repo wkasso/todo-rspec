@@ -52,7 +52,7 @@ describe "ToDo" do
   end
 
   it "Should not delete an object that is non-existent" do
-    
+    expect((HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/1").code).to eq(404)
   end
 
   it "Should use put to change the content of an object" do
