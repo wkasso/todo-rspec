@@ -24,11 +24,11 @@ describe "ToDo" do
   end
 
   it "Should not create an object with wrong formatting" do
-
+    
   end 
 
   it "Should not create an object with missing parameters" do
-
+    expect((HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[2]).code).to eq(422)
   end
 
   it "Should not create an object within an existing object" do
