@@ -42,7 +42,9 @@ describe "ToDo" do
   end
 
   it "Should delete an object" do
-
+    rpost = HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[0]
+    id = rpost["id"]
+    expect((HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}").code).to eq(204)
   end
 
   it "Should not delete a collection" do
