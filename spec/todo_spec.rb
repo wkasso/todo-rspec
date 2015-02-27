@@ -48,7 +48,7 @@ describe "ToDo" do
   end
 
   it "Should not delete a collection" do
-    
+    expect((HTTParty.delete "http://lacedeamon.spartaglobal.com/todos").code).to eq(405)
   end
 
   it "Should not delete an object that is non-existent" do
