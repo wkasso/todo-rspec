@@ -56,7 +56,13 @@ describe "ToDo" do
   end
 
   it "Should use put to change the content of an object" do
-    
+    rpost = HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[0]
+    id = rpost["id"]
+    rput = HTTParty.put "http://lacedeamon.spartaglobal.com/todos/#{id}", query: {title: '7 Principles of testing', due: '20-01-5000'}
+    expect(rput.code).to eq(200)
+    expect(rput["title"]).to eq('7 Principles of testing')
+    expect(rput["due"]).to eq('5000-01-20')
+    HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}"
   end
 
   it "Should use patch to change all content of an object" do
