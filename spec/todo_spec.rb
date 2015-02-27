@@ -75,6 +75,9 @@ describe "ToDo" do
   end
 
   it "Should not change content of an object with put if there is missing parameters" do
-    
+    rpost = HTTParty.post "http://lacedeamon.spartaglobal.com/todos", query: entry[0]
+    id = rpost["id"]
+    expect((HTTParty.put "http://lacedeamon.spartaglobal.com/todos/#{id}", query: {title: '7 Principles of testing'}).code).to eq(422)   
+    HTTParty.delete "http://lacedeamon.spartaglobal.com/todos/#{id}"
   end
 end
